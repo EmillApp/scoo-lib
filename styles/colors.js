@@ -1,7 +1,10 @@
 module.exports = {
   background: '#FFFFFF',
+  backgroundDarkMode: '#121212',
   inputBackground: '#F8F8F8',
+  inputBackgroundDarkMode: '#5a5454',
   textColor: '#000000',
+  textColorDarkMode: 'rgba(255,255,255,0.87)',
   lightTextColor: '#FFFFFF',
   inactiveTextColor: '#A5ADB5',
   gold: {
