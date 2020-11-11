@@ -176,6 +176,9 @@ const getLogoFromUrl = function (query) { return this.request('/partnerLogo', { 
 
 const getFeed = function (query) { return this.request('/feed', { query }) }
 const postFeed = function (data) { return this.request('/feed', { method: 'POST', data }) }
+const postFeedUpdate = function (id, data) { return this.request(`/feed/${id}`, { method: 'POST', data }) }
+const deletePost = function (id) { return this.request(`/feed/${id}`, { method: 'DELETE' }) }
+
 const postTimelineComment = function (id, data) { return this.request(`/feed/${id}/comments`, { method: 'POST', data }) }
 const likeComment = function (id) { return this.request(`/comments/${id}/likes`, { method: 'POST' }) }
 const unlikeComment = function (id) { return this.request(`/comments/${id}/likes`, { method: 'DELETE' }) }
@@ -332,6 +335,8 @@ const api = {
   getLogoFromUrl,
   getFeed,
   postFeed,
+  postFeedUpdate,
+  deletePost,
   postTimelineComment,
   likeComment,
   unlikeComment,
