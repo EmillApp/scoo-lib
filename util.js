@@ -1,5 +1,4 @@
 const { colors } = require('./styles')
-const moment = require('moment')
 
 const IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'svg', 'gif']
 const URL_MAX_LENGTH = 100
@@ -113,7 +112,10 @@ const getLevelColor = card => {
 }
 
 const formatDate = (date = '') => {
-  return moment(date).format('YYYY-MM-DD HH:mm')
+  const d = date instanceof Date 
+    ? date
+    : new Date(date)
+  return d.toJSON().substr(0, 16).replace('T', ' ')
 }
 
 module.exports = {

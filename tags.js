@@ -38,4 +38,5 @@ const tags = [
   'varhaiskasvatus'
 ]
 
-export { tags }
+// export { tags }
+module.exports = { tags }

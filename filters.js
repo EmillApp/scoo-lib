@@ -158,7 +158,8 @@ const getFilterkey = filter => {
   return key
 }
 
-export {
+// export {
+module.exports = {
   filtersMap,
   filterParamsMap,
   getSearchFilters,
