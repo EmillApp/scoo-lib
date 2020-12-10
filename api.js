@@ -139,6 +139,7 @@ const getDeck = function (id) { return this.request(`/decks/${id}`) }
 const updateDeck = function (id, data) { return this.request(`/decks/${id}`, { method: 'PATCH', data }) }
 const deleteDeck = function (id) { return this.request(`/decks/${id}`, { method: 'DELETE' }) }
 const searchDecks = function (query) { return this.request('/decks', { query }) }
+const shareDeckWithUsers = function (data) { return this.request(`/decks/${id}/share`, { method: 'POST', data }) }
 const getMarketplaceDecks = function () { return this.request('/marketplace') }
 
 const createCard = function (deckId, data) {
@@ -289,6 +290,7 @@ const api = {
   updateDeck,
   deleteDeck,
   searchDecks,
+  shareDeckWithUsers,
   getMarketplaceDecks,
   createCard,
   getCard,
