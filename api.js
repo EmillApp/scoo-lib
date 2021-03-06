@@ -17,7 +17,7 @@ function fetchWithTimeout (url, params, timeout) {
   })
 }
 
-const request = async (url, params = {}) => {
+export const request = async (url, params = {}) => {
   params = Object.assign(params, api.defaultParams || {})
 
   params.body = params.data ? JSON.stringify(params.data) : params.body
