@@ -17,7 +17,7 @@ function fetchWithTimeout (url, params, timeout) {
   })
 }
 
-export const request = async (url, params = {}) => {
+const request = async (url, params = {}) => {
   params = Object.assign(params, api.defaultParams || {})
 
   params.body = params.data ? JSON.stringify(params.data) : params.body
@@ -373,4 +373,4 @@ const api = {
 }
 
 // export default api
-module.exports = api
+module.exports = { api, request }
