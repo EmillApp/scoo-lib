@@ -373,4 +373,4 @@ const api = {
 }
 
 // export default api
-module.exports = { api, request }
+module.exports = api

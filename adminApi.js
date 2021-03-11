@@ -1,6 +1,6 @@
-const {request} = require("./api");
+const api = require("./api");
 
-const adminUpdateUser = function (id, data) { return request(`/admin/users/${id}`, { method: 'POST', data }) }
+const adminUpdateUser = function (id, data) { return api.request(`/admin/users/${id}`, { method: 'POST', data }) }
 
 const adminApi = {
     adminUpdateUser
