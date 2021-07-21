@@ -155,6 +155,7 @@ const markCardStepDone = function (id, stepId) { return this.request(`/cards/${i
 const getCardStepsDoneEvents = function (id) { return this.request(`/cards/${id}/steps`) }
 const addCardToDeck = function (deckId, cardId) { return this.request(`/decks/${deckId}/addcard/${cardId}`, { method: 'POST' }) }
 const removeCardFromDeck = function (deckId, cardId) { return this.request(`/decks/${deckId}/removecard/${cardId}`, { method: 'DELETE' }) }
+const approveToMarketplace = function (deckId = '', cardId) { return this.request(`/marketplace/${cardId}/approve/${deckId}`, { method: 'POST' }) }
 const publishToMarketplace = function (deckId = '', data) { return this.request(`/marketplace/${deckId}`, { method: 'POST', data }) }
 const getPublishedCardCategory = function (cardId) { return this.request(`/cards/${cardId}/marketplace-category`, { method: 'GET' }) }
 const getPublishedCardByOriginalIds = function (ids) { return this.request('/cards/marketplace-status', { method: 'GET', query: { ids } }) }
@@ -299,6 +300,7 @@ const api = {
   likeCard,
   addCardToDeck,
   removeCardFromDeck,
+  approveToMarketplace,
   publishToMarketplace,
   searchCards,
   getDecksHome,
