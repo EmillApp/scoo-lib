@@ -167,6 +167,7 @@ const getMyDecks = function () { return this.request('/users/me/decks') }
 const getMyRecommendedCards = function () { return this.request('/users/me/recommended-cards') }
 const getUserDecks = function (id, query) { return this.request(`/users/${id}/decks`, { query }) }
 const getUserCards = function (id, query) { return this.request(`/users/${id}/cards`, { query }) }
+const getUserChildren = function (id, query) { return this.request(`/users/${id}/children`, { query }) }
 const followUser = function (id) { return this.request(`/users/${id}/follow`, { method: 'GET' }) }
 const unfollowUser = function (id) { return this.request(`/users/${id}/unfollow`, { method: 'GET' }) }
 
@@ -310,6 +311,7 @@ const api = {
   getMyRecommendedCards,
   getUserDecks,
   getUserCards,
+  getUserChildren,
   addCardReview,
   editCardReview,
   getTask,
