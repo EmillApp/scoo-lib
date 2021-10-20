@@ -221,6 +221,7 @@ const editTaskComment = function (id, commentId, data) { return this.request(`/t
 const createChannel = function (data) { return this.request('/chat', { method: 'POST', data }) }
 const createPrivateChannel = function (id, data) { return this.request(`/chat/private/${id}`, { method: 'POST', data }) }
 const getMyChannels = function () { return this.request('/users/me/channels', { method: 'GET' }) }
+const personIsTyping = function (id, data) { return this.request(`/chat/${id}/typing`, { method: 'POST' }) }
 const getMessages = function (id) { return this.request(`/chat/${id}/messages`, { method: 'GET' }) }
 const getPresence = function (id) { return this.request(`/chat/${id}/presence`, { method: 'GET' }) }
 const chatSubscribe = function (id, data) { return this.request(`/chat/${id}/subscribe`, { method: 'POST', data }) }
@@ -328,6 +329,7 @@ const api = {
   createPrivateChannel,
   getMyChannels,
   getMessages,
+  personIsTyping,
   getPresence,
   chatSubscribe,
   chatUnsubscribe,
