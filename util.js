@@ -1,6 +1,7 @@
 const { colors } = require('./styles')
 
 const IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'svg', 'gif']
+const VIDEO_EXTENSIONS = ['mp4', 'mov', 'wmv', 'avi', 'avchd', 'flv', 'f4v', 'swf', 'webm', 'mpeg-2', 'mpg', 'mpeg', 'mpv', 'mpe']
 const URL_MAX_LENGTH = 100
 const MAX_CONTENT_LENGTH = 47
 
@@ -120,6 +121,7 @@ const formatDate = (date = '') => {
 
 module.exports = {
   IMAGE_EXTENSIONS,
+  VIDEO_EXTENSIONS,
   URL_MAX_LENGTH,
   MAX_CONTENT_LENGTH,
   getFirstName,
