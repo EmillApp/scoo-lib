@@ -233,6 +233,35 @@ const chatUnsubscribeMany = function (id, data) { return this.request(`/chat/${i
 const registerPushToken = function (data) { return this.request('/users/me/push-token', { method: 'POST', data }) }
 const revokePushToken = function (data) { return this.request('/users/me/push-token', { method: 'DELETE', data }) }
 
+const getMyGroups = function (id) { return this.request('/users/me/groups', { method: 'GET' }) }
+const getGroup = function (id) { return this.request(`/groups/${id}`, { method: 'GET' }) }
+const createGroup = function (data) { return this.request('/groups', { method: 'POST', data }) }
+const updateGroup = function (id, data) { return this.request(`/groups/${id}`, { method: 'PATCH', data }) }
+const deleteGroup = function (id) { return this.request(`/groups/${id}`, { method: 'DELETE' }) }
+const joinGroup = function (id) { return this.request(`/groups/${id}/join`, { method: 'POST' }) }
+const leaveGroup = function (id) { return this.request(`/groups/${id}/leave`, { method: 'POST' }) }
+const inviteUserToGroup = function (id, userId) { return this.request(`/groups/${id}/invite/${userId}`, { method: 'POST' }) }
+const acceptGroupInvite = function (id) { return this.request(`/groups/${id}/accept`, { method: 'POST' }) }
+
+const postToGroupTimeline = function (id, data) { return this.request(`/groups/${id}/timeline`, { method: 'POST', data }) }
+const createChatInGroup = function (groupId, data) { return this.request(`/chats`, { method: 'POST', data: { ...data, group: groupId } }) }
+const createQuestionInGroup = function (groupId, data) { return this.request(`/questions`, { method: 'POST', data: { ...data, group: groupId } }) }
+
+const getGroupUsers = function (id) { return this.request(`/groups/${id}/users`, { method: 'GET' }) }
+const getGroupChats = function (id) { return this.request(`/groups/${id}/chats`, { method: 'GET' }) }
+const getGroupTimeline = function (id) { return this.request(`/groups/${id}/timeline`, { method: 'GET' }) }
+const getGroupQuestions = function (id) { return this.request(`/groups/${id}/questions`, { method: 'GET' }) }
+
+const getCollection = function (id) { return this.request(`/colls/${id}`, { method: 'GET' }) }
+const createCollection = function (data) { return this.request(`/colls`, { method: 'POST', data }) }
+const updateCollection = function (id, data) { return this.request(`/colls/${id}`, { method: 'PATCH', data }) }
+const deleteCollection = function (id) { return this.request(`/colls/${id}`, { method: 'DELETE' }) }
+const addCollectionToGroup = function (groupId, collId) { return this.request(`/groups/${groupId}/colls/${collId}`, { method: 'POST', data }) }
+const removeCollectionFromGroup = function (groupId, collId) { return this.request(`/groups/${groupId}/colls/${collId}`, { method: 'DELETE' }) }
+const addDeckToCollection = function (collId, deckId) { return this.request(`/colls/${collId}/decks/${deckId}`, { method: 'POST', data }) }
+const removeDeckFromCollection = function (collId, deckId) { return this.request(`/colls/${collId}/decks/${deckId}`, { method: 'DELETE' }) }
+
+
 const sendDebug = function (message) {
   const data = {}
   if (message instanceof Error) {
@@ -378,7 +407,30 @@ const api = {
   getQuiz,
   getQuizAnswers,
   markCardStepDone,
-  getCardStepsDoneEvents
+  getCardStepsDoneEvents,
+
+  getMyGroups,
+  getGroup,
+  createGroup,
+  updateGroup,
+  deleteGroup,
+  joinGroup,
+  leaveGroup,
+  inviteUserToGroup,
+  acceptGroupInvite,
+  getGroupUsers,
+  getGroupChats,
+  postToGroupTimeline,
+  getGroupTimeline,
+  getGroupQuestions,
+  getCollection,
+  createCollection,
+  updateCollection,
+  deleteCollection,
+  addCollectionToGroup,
+  removeCollectionFromGroup,
+  addDeckToCollection,
+  removeDeckFromCollection 
 }
 
 // export default api
