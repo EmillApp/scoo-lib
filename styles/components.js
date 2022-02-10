@@ -25,8 +25,8 @@ module.exports = {
   },
   input: {
     fontFamily: 'Montserrat_regular',
-    fontSize: 13,
-    height: 35,
+    fontSize: 14,
+    height: 48,
     backgroundColor: colors.inputBackground,
     padding: 8,
     marginTop: 10,
@@ -35,11 +35,11 @@ module.exports = {
   },
   titleHeader: {
     fontFamily: 'Montserrat_medium',
-    fontSize: 12
+    fontSize: 14
   },
   titleText: {
     fontFamily: 'Montserrat_regular',
-    fontSize: 12
+    fontSize: 14
   },
   markdownStyles: {
     text: {
