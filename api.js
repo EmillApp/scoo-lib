@@ -261,6 +261,10 @@ const removeCollectionFromGroup = function (groupId, collId) { return this.reque
 const addDeckToCollection = function (collId, deckId) { return this.request(`/colls/${collId}/decks/${deckId}`, { method: 'POST', data }) }
 const removeDeckFromCollection = function (collId, deckId) { return this.request(`/colls/${collId}/decks/${deckId}`, { method: 'DELETE' }) }
 
+const getMyCollections = function () { return this.request('/users/me/colls') }
+const subscribeToCollection = function (id) { return this.request(`/colls/${id}/subscribe`, { method: 'POST' }) }
+const unsubscribeFromCollection = function (id) { return this.request(`/colls/${id}/subscribe`, { method: 'DELETE' }) }
+
 
 const sendDebug = function (message) {
   const data = {}
@@ -430,7 +434,11 @@ const api = {
   addCollectionToGroup,
   removeCollectionFromGroup,
   addDeckToCollection,
-  removeDeckFromCollection 
+  removeDeckFromCollection,
+
+  getMyCollections,
+  subscribeToCollection,
+  unsubscribeFromCollection
 }
 
 // export default api
