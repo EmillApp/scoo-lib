@@ -2,7 +2,7 @@
 const apiHost = process.env.API_HOST || 'https://emill.dev.difogic.com'
 const defaultParams = { headers: { 'Content-type': 'application/json' }, credentials: 'include' }
 
-function fetchWithTimeout (url, params, timeout) {
+function fetchWithTimeout(url, params, timeout) {
   return new Promise((resolve, reject) => {
     // Set timeout timer
     const timer = setTimeout(
@@ -244,7 +244,7 @@ const inviteUserToGroup = function (id, userId) { return this.request(`/groups/$
 const acceptGroupInvite = function (id) { return this.request(`/groups/${id}/accept`, { method: 'POST' }) }
 
 const postToGroupTimeline = function (id, data) { return this.request(`/groups/${id}/timeline`, { method: 'POST', data }) }
-const createChatInGroup = function (groupId, data) { return this.request(`/chats`, { method: 'POST', data: { ...data, group: groupId } }) }
+const createChatInGroup = function (groupId, data) { return this.request(`/chat`, { method: 'POST', data: { ...data, group: groupId } }) }
 const createQuestionInGroup = function (groupId, data) { return this.request(`/questions`, { method: 'POST', data: { ...data, group: groupId } }) }
 
 const getGroupUsers = function (id) { return this.request(`/groups/${id}/users`, { method: 'GET' }) }
@@ -435,10 +435,11 @@ const api = {
   removeCollectionFromGroup,
   addDeckToCollection,
   removeDeckFromCollection,
-
   getMyCollections,
   subscribeToCollection,
-  unsubscribeFromCollection
+  unsubscribeFromCollection,
+  createChatInGroup,
+  createQuestionInGroup
 }
 
 // export default api
