@@ -249,7 +249,7 @@ const createQuestionInGroup = function (groupId, data) { return this.request(`/q
 
 const getGroupUsers = function (id) { return this.request(`/groups/${id}/users`, { method: 'GET' }) }
 const getGroupChats = function (id) { return this.request(`/groups/${id}/chats`, { method: 'GET' }) }
-const getGroupTimeline = function (id) { return this.request(`/groups/${id}/timeline`, { method: 'GET' }) }
+const getGroupTimeline = function (id, query) { return this.request(`/groups/${id}/timeline`, { query }) }
 const getGroupQuestions = function (id) { return this.request(`/groups/${id}/questions`, { method: 'GET' }) }
 
 const getCollection = function (id) { return this.request(`/colls/${id}`, { method: 'GET' }) }
