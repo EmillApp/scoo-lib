@@ -235,6 +235,7 @@ const revokePushToken = function (data) { return this.request('/users/me/push-to
 
 const getMyGroups = function (id) { return this.request('/users/me/groups', { method: 'GET' }) }
 const getGroup = function (id) { return this.request(`/groups/${id}`, { method: 'GET' }) }
+const getGroupWithoutAuth = function (id) { return this.request(`/groups/noauth/${id}`, { method: 'GET' }) }
 const createGroup = function (data) { return this.request('/groups', { method: 'POST', data }) }
 const updateGroup = function (id, data) { return this.request(`/groups/${id}`, { method: 'PATCH', data }) }
 const deleteGroup = function (id) { return this.request(`/groups/${id}`, { method: 'DELETE' }) }
@@ -302,6 +303,7 @@ const api = {
   getAllUserEvents,
   getUserQuestions,
   createQuestion,
+  getGroupWithoutAuth,
   getQuestion,
   updateQuestion,
   archiveQuestion,
