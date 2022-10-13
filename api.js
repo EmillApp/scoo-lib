@@ -250,7 +250,7 @@ const postToGroupTimeline = function (id, data) { return this.request(`/groups/$
 const createChatInGroup = function (groupId, data) { return this.request(`/chat`, { method: 'POST', data: { ...data, group: groupId } }) }
 const createQuestionInGroup = function (groupId, data) { return this.request(`/questions`, { method: 'POST', data: { ...data, group: groupId } }) }
 
-const getGroupUsers = function (id) { return this.request(`/groups/${id}/users`, { method: 'GET' }) }
+const getGroupUsers = function (id, query) { return this.request(`/groups/${id}/users`, { method: 'GET', query }) }
 const getGroupChats = function (id) { return this.request(`/groups/${id}/chats`, { method: 'GET' }) }
 const getGroupTimeline = function (id, query) { return this.request(`/groups/${id}/timeline`, { query }) }
 const getGroupQuestions = function (id) { return this.request(`/groups/${id}/questions`, { method: 'GET' }) }
