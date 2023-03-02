@@ -234,6 +234,7 @@ const registerPushToken = function (data) { return this.request('/users/me/push-
 const revokePushToken = function (data) { return this.request('/users/me/push-token', { method: 'DELETE', data }) }
 
 const getMyGroups = function (id) { return this.request('/users/me/groups', { method: 'GET' }) }
+const getUserGroups = function (id) { return this.request(`/users/${id}/groups`, { method: 'GET' }) }
 const getGroup = function (id) { return this.request(`/groups/${id}`, { method: 'GET' }) }
 
 const getGroupWithoutAuth = function (id) { return this.request(`/groups/public/${id}`, { method: 'GET' }) }
@@ -418,6 +419,7 @@ const api = {
   getCardStepsDoneEvents,
 
   getMyGroups,
+  getUserGroups,
   getGroup,
   createGroup,
   updateGroup,
