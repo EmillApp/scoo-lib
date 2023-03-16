@@ -178,6 +178,8 @@ const unfollowTag = function (tag) { return this.request(`/tags/${tag}/unfollow`
 
 const getLogoFromUrl = function (query) { return this.request('/partnerLogo', { query }) }
 
+const sendUserProfilePost = function (data) { return this.request('/userFeed', { method: 'POST', data }) }
+const getUserProfilePosts = function (query) { return this.request('/userFeed', { query }) }
 const getFeed = function (query) { return this.request('/feed', { query }) }
 const postFeed = function (data) { return this.request('/feed', { method: 'POST', data }) }
 const postFeedUpdate = function (id, data) { return this.request(`/feed/${id}`, { method: 'POST', data }) }
@@ -445,7 +447,9 @@ const api = {
   subscribeToCollection,
   unsubscribeFromCollection,
   createChatInGroup,
-  createQuestionInGroup
+  createQuestionInGroup,
+  sendUserProfilePost,
+  getUserProfilePosts,
 }
 
 // export default api
