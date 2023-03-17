@@ -249,6 +249,8 @@ const leaveGroup = function (id) { return this.request(`/groups/${id}/leave`, { 
 const inviteUserToGroup = function (id, userId) { return this.request(`/groups/${id}/invite/${userId}`, { method: 'POST' }) }
 const acceptGroupInvite = function (id) { return this.request(`/groups/${id}/accept`, { method: 'POST' }) }
 
+const removeChatFromGroup = function (id, channelId) { return this.request(`/groups/${id}/chats/${channelId}/remove`, { method: 'POST' }) }
+const removeQuestionFromGroup = function (id, questionId) { return this.request(`/groups/${id}/questions/${questionId}/remove`, { method: 'POST' }) }
 const postToGroupTimeline = function (id, data) { return this.request(`/groups/${id}/timeline`, { method: 'POST', data }) }
 const createChatInGroup = function (groupId, data) { return this.request(`/chat`, { method: 'POST', data: { ...data, group: groupId } }) }
 const createQuestionInGroup = function (groupId, data) { return this.request(`/questions`, { method: 'POST', data: { ...data, group: groupId } }) }
@@ -430,6 +432,8 @@ const api = {
   leaveGroup,
   inviteUserToGroup,
   acceptGroupInvite,
+  removeChatFromGroup,
+  removeQuestionFromGroup,
   getGroupUsers,
   getGroupChats,
   postToGroupTimeline,
