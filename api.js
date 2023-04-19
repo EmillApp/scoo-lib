@@ -235,6 +235,7 @@ const chatUnsubscribeMany = function (id, data) { return this.request(`/chat/${i
 const registerPushToken = function (data) { return this.request('/users/me/push-token', { method: 'POST', data }) }
 const revokePushToken = function (data) { return this.request('/users/me/push-token', { method: 'DELETE', data }) }
 
+const searchGroups = function (data) { return this.request('/groups/search', { method: 'POST', data }) }
 const getMyGroups = function (id) { return this.request('/users/me/groups', { method: 'GET' }) }
 const getUserGroups = function (id) { return this.request(`/users/${id}/groups`, { method: 'GET' }) }
 const getGroup = function (id) { return this.request(`/groups/${id}`, { method: 'GET' }) }
@@ -248,7 +249,6 @@ const joinGroup = function (id) { return this.request(`/groups/${id}/join`, { me
 const leaveGroup = function (id) { return this.request(`/groups/${id}/leave`, { method: 'POST' }) }
 const inviteUserToGroup = function (id, userId) { return this.request(`/groups/${id}/invite/${userId}`, { method: 'POST' }) }
 const acceptGroupInvite = function (id) { return this.request(`/groups/${id}/accept`, { method: 'POST' }) }
-const sendInviteGroupLink = function (data) { return this.request('/send-group-invite', { method: 'POST', data }) }
 
 const removeChatFromGroup = function (id, channelId) { return this.request(`/groups/${id}/chats/${channelId}/remove`, { method: 'POST' }) }
 const removeQuestionFromGroup = function (id, questionId) { return this.request(`/groups/${id}/questions/${questionId}/remove`, { method: 'POST' }) }
@@ -388,6 +388,7 @@ const api = {
   getLogoFromUrl,
   getFeed,
   postFeed,
+  searchGroups,
   getMyOrgsChannels,
   postFeedUpdate,
   deletePost,
@@ -433,7 +434,6 @@ const api = {
   leaveGroup,
   inviteUserToGroup,
   acceptGroupInvite,
-  sendInviteGroupLink,
   removeChatFromGroup,
   removeQuestionFromGroup,
   getGroupUsers,
