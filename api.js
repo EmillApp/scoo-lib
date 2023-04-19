@@ -273,7 +273,7 @@ const removeDeckFromCollection = function (collId, deckId) { return this.request
 const getMyCollections = function () { return this.request('/users/me/colls') }
 const subscribeToCollection = function (id) { return this.request(`/colls/${id}/subscribe`, { method: 'POST' }) }
 const unsubscribeFromCollection = function (id) { return this.request(`/colls/${id}/subscribe`, { method: 'DELETE' }) }
-
+const getAllMyGroupsTimeline = function (query) { return this.request('/users/me/groups/fulltimeline', { query }) }
 
 const sendDebug = function (message) {
   const data = {}
@@ -456,6 +456,7 @@ const api = {
   createQuestionInGroup,
   sendUserProfilePost,
   getUserProfilePosts,
+  getAllMyGroupsTimeline
 }
 
 // export default api
