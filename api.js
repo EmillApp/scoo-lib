@@ -260,6 +260,10 @@ const getGroupUsers = function (id, query) { return this.request(`/groups/${id}/
 const getGroupChats = function (id) { return this.request(`/groups/${id}/chats`, { method: 'GET' }) }
 const getGroupTimeline = function (id, query) { return this.request(`/groups/${id}/timeline`, { query }) }
 const getGroupQuestions = function (id) { return this.request(`/groups/${id}/questions`, { method: 'GET' }) }
+const pinTimelinePost = function (id, postId) { return this.request(`/groups/${id}/pin/${postId}`, { method: 'POST' }) }
+const getPinnedPostByGroupId = function (id) { return this.request(`/groups/${id}/pin`, { method: 'GET' }) }
+const unpinTimelinePost = function (id) { return this.request(`/groups/${id}/pin`, { method: 'DELETE' }) }
+
 
 const getCollection = function (id) { return this.request(`/colls/${id}`, { method: 'GET' }) }
 const createCollection = function (data) { return this.request(`/colls`, { method: 'POST', data }) }
@@ -441,6 +445,9 @@ const api = {
   postToGroupTimeline,
   getGroupTimeline,
   getGroupQuestions,
+  pinTimelinePost,
+  getPinnedPostByGroupId,
+  unpinTimelinePost,
   getCollection,
   createCollection,
   updateCollection,
