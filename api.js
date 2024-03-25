@@ -222,6 +222,7 @@ const editTaskComment = function (id, commentId, data) { return this.request(`/t
 
 const createChannel = function (data) { return this.request('/chat', { method: 'POST', data }) }
 const createPrivateChannel = function (id, data) { return this.request(`/chat/private/${id}`, { method: 'POST', data }) }
+const updateChat = function (id, data) { return this.request(`/chat/${id}`, { method: 'PATCH', data }) }
 const getMyChannels = function () { return this.request('/users/me/channels', { method: 'GET' }) }
 const personIsTyping = function (id, data) { return this.request(`/chat/${id}/typing`, { method: 'POST' }) }
 const getMessages = function (id) { return this.request(`/chat/${id}/messages`, { method: 'GET' }) }
@@ -374,6 +375,7 @@ const api = {
   sendDebug,
   createChannel,
   createPrivateChannel,
+  updateChat,
   getMyChannels,
   getMessages,
   personIsTyping,
