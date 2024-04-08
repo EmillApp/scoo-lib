@@ -186,6 +186,7 @@ const postFeedUpdate = function (id, data) { return this.request(`/feed/${id}`, 
 const deletePost = function (id, data) { return this.request(`/feed/delete/${id}`, { method: 'POST', data }) }
 const getMyOrgsChannels = function (query) { return this.request('/orgchannels', { query }) }
 const postTimelineComment = function (id, data) { return this.request(`/feed/${id}/comments`, { method: 'POST', data }) }
+const deleteComment = function (id) { return this.request(`/comments/${id}`, { method: 'DELETE' }) }
 const likeComment = function (id) { return this.request(`/comments/${id}/likes`, { method: 'POST' }) }
 const unlikeComment = function (id) { return this.request(`/comments/${id}/likes`, { method: 'DELETE' }) }
 
@@ -399,6 +400,7 @@ const api = {
   postFeedUpdate,
   deletePost,
   postTimelineComment,
+  deleteComment,
   likeComment,
   unlikeComment,
   getAnnouncements,
