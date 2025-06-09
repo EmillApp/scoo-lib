@@ -18,6 +18,8 @@ function fetchWithTimeout(url, params, timeout) {
 }
 
 const request = async (url, params = {}) => {
+  const timeout = (params.timeout || 30) * 1000
+  
   params = Object.assign(params, api.defaultParams || {})
 
   params.body = params.data ? JSON.stringify(params.data) : params.body
@@ -31,7 +33,7 @@ const request = async (url, params = {}) => {
 
   const host = api.defaultParams && 'host' in api.defaultParams ? api.defaultParams.host : apiHost
   try {
-    const res = await fetchWithTimeout(host + '/api' + url, params, 30 * 1000)
+    const res = await fetchWithTimeout(host + '/api' + url, params, timeout)
     process.env.DEBUG && console.log(apiHost + '/api' + url, params)
     const data = await res.json()
 
@@ -143,13 +145,13 @@ const addCardToParentsDeckByGroupId = function (channelId, cardId) { return this
 const shareDeckWithUsers = function (id, data) { return this.request(`/decks/${id}/share`, { method: 'POST', data }) }
 const getMarketplaceDecks = function () { return this.request('/marketplace') }
 
-const createCard = function (deckId, data) {
+const createCard = function (deckId, data, timeout) {
   return deckId
-    ? this.request(`/decks/${deckId}/cards`, { method: 'POST', data })
-    : this.request('/cards', { method: 'POST', data })
+    ? this.request(`/decks/${deckId}/cards`, { method: 'POST', data, timeout })
+    : this.request('/cards', { method: 'POST', data, timeout })
 }
 const getCard = function (id) { return this.request(`/cards/${id}`) }
-const updateCard = function (id, data) { return this.request(`/cards/${id}`, { method: 'PATCH', data }) }
+const updateCard = function (id, data, timeout) { return this.request(`/cards/${id}`, { method: 'PATCH', data, timeout }) }
 const deleteCard = function (id) { return this.request(`/cards/${id}`, { method: 'DELETE' }) }
 const likeCard = function (id) { return this.request(`/cards/${id}/like`) }
 const markCardStepDone = function (id, stepId) { return this.request(`/cards/${id}/steps/${stepId}`, { method: 'POST' }) }
