@@ -296,7 +296,7 @@ const sendDebug = function (message) {
   } else {
     data.message = message
   }
-  return this.request('/debug', { method: 'POST', data })
+  return request('/debug', { method: 'POST', data })
 }
 
 const api = {
