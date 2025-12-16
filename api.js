@@ -1,5 +1,5 @@
 /* global fetch, FormData, XMLHttpRequest */
-const apiHost = 'http://localhost:3000'
+const apiHost = process.env.API_HOST || 'https://dev.emill.fi'
 const defaultParams = { headers: { 'Content-type': 'application/json' }, credentials: 'include' }
 
 function fetchWithTimeout(url, params, timeout) {
