@@ -1,5 +1,5 @@
 /* global fetch, FormData, XMLHttpRequest */
-const apiHost = process.env.API_HOST || 'https://dev.emill.fi'
+const apiHost = 'http://localhost:3000'
 const defaultParams = { headers: { 'Content-type': 'application/json' }, credentials: 'include' }
 
 function fetchWithTimeout(url, params, timeout) {
@@ -254,6 +254,12 @@ const leaveGroup = function (id) { return this.request(`/groups/${id}/leave`, { 
 const inviteUserToGroup = function (id, userId) { return this.request(`/groups/${id}/invite/${userId}`, { method: 'POST' }) }
 const acceptGroupInvite = function (id) { return this.request(`/groups/${id}/accept`, { method: 'POST' }) }
 
+const createGroupInvite = function (id) { return this.request(`/groups/${id}/invite`, { method: 'POST' }) }
+const deleteGroupInvite = function (id) { return this.request(`/groups/${id}/invite`, { method: 'DELETE' }) }
+const joinGroupWithInvite = function (code) { return this.request(`/groups/invite/accept/${code}`, { method: 'POST' }) }
+const getGroupInviteData = function (code) { return this.request(`/groups/invite/${code}`, { method: 'GET' }) }
+const getGroupInviteDataById = function (id) { return this.request(`/groups/${id}/invite`, { method: 'GET' }) }
+
 const removeChatFromGroup = function (id, channelId) { return this.request(`/groups/${id}/chats/${channelId}/remove`, { method: 'POST' }) }
 const removeQuestionFromGroup = function (id, questionId) { return this.request(`/groups/${id}/questions/${questionId}/remove`, { method: 'POST' }) }
 const postToGroupTimeline = function (id, data) { return this.request(`/groups/${id}/timeline`, { method: 'POST', data }) }
@@ -469,7 +475,12 @@ const api = {
   createQuestionInGroup,
   sendUserProfilePost,
   getUserProfilePosts,
-  getAllMyGroupsTimeline
+  getAllMyGroupsTimeline,
+  createGroupInvite,
+  joinGroupWithInvite,
+  getGroupInviteData,
+  deleteGroupInvite,
+  getGroupInviteDataById
 }
 
 // export default api
