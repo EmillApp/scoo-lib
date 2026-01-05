@@ -229,6 +229,7 @@ const updateChat = function (id, data) { return this.request(`/chat/${id}`, { me
 const getMyChannels = function () { return this.request('/users/me/channels', { method: 'GET' }) }
 const personIsTyping = function (id, data) { return this.request(`/chat/${id}/typing`, { method: 'POST' }) }
 const getMessages = function (id) { return this.request(`/chat/${id}/messages`, { method: 'GET' }) }
+const deleteAllMessages = function (id) { return this.request(`/chat/${id}/messages`, { method: 'DELETE' }) }
 const getPresence = function (id) { return this.request(`/chat/${id}/presence`, { method: 'GET' }) }
 const chatSubscribe = function (id, data) { return this.request(`/chat/${id}/subscribe`, { method: 'POST', data }) }
 const chatUnsubscribe = function (id, data) { return this.request(`/chat/${id}/unsubscribe`, { method: 'POST', data }) }
@@ -387,6 +388,7 @@ const api = {
   updateChat,
   getMyChannels,
   getMessages,
+  deleteAllMessages,
   personIsTyping,
   getPresence,
   chatSubscribe,
