@@ -153,6 +153,7 @@ const createCard = function (deckId, data, timeout) {
 const getCard = function (id) { return this.request(`/cards/${id}`) }
 const updateCard = function (id, data, timeout) { return this.request(`/cards/${id}`, { method: 'PATCH', data, timeout }) }
 const deleteCard = function (id) { return this.request(`/cards/${id}`, { method: 'DELETE' }) }
+const fillCard = function (data) { return this.request('/cards/fill', { method: 'POST', data }) }
 const likeCard = function (id) { return this.request(`/cards/${id}/like`) }
 const markCardStepDone = function (id, stepId) { return this.request(`/cards/${id}/steps/${stepId}`, { method: 'POST' }) }
 const getCardStepsDoneEvents = function (id) { return this.request(`/cards/${id}/steps`) }
@@ -482,7 +483,8 @@ const api = {
   joinGroupWithInvite,
   getGroupInviteData,
   deleteGroupInvite,
-  getGroupInviteDataById
+  getGroupInviteDataById,
+  fillCard
 }
 
 // export default api
