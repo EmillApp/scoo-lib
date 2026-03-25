@@ -240,6 +240,7 @@ const chatUnsubscribeMany = function (id, data) { return this.request(`/chat/${i
 
 const registerPushToken = function (data) { return this.request('/users/me/push-token', { method: 'POST', data }) }
 const revokePushToken = function (data) { return this.request('/users/me/push-token', { method: 'DELETE', data }) }
+const syncBadge = function (data) { return this.request('/users/me/badge', { method: 'POST', data }) }
 
 const searchGroups = function (query) { return this.request('/groups/search', { query }) }
 const getMyGroups = function (id) { return this.request('/users/me/groups', { method: 'GET' }) }
@@ -429,6 +430,7 @@ const api = {
   deleteParam,
   registerPushToken,
   revokePushToken,
+  syncBadge,
   getPublishedCardCategory,
   getPublishedCardByOriginalIds,
   createAndInviteUser,
