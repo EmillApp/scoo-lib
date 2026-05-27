@@ -85,6 +85,7 @@ const uploadFile = async function (file, progressCallback, done) {
 const register = function (data) { return this.request('/auth/register', { method: 'POST', data }) }
 const login = function (data) { return this.request('/auth/login', { method: 'POST', data }) }
 const magicLogin = function (data) { return this.request('/auth/magic', { method: 'POST', data }) }
+const validateMagicToken = function (token) { return this.request(`/auth/magic/validate/${token}`) }
 const logout = function () { return this.request('/auth/logout', { method: 'POST' }) }
 const forgotpassword = function (data) { return this.request('/auth/forgotpassword', { method: 'POST', data }) }
 
@@ -315,6 +316,7 @@ const api = {
   register,
   login,
   magicLogin,
+  validateMagicToken,
   logout,
   forgotpassword,
   searchUsers,
