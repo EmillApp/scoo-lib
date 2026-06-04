@@ -236,6 +236,8 @@ const getPresence = function (id) { return this.request(`/chat/${id}/presence`, 
 const chatSubscribe = function (id, data) { return this.request(`/chat/${id}/subscribe`, { method: 'POST', data }) }
 const chatUnsubscribe = function (id, data) { return this.request(`/chat/${id}/unsubscribe`, { method: 'POST', data }) }
 const newMessage = function (id, data) { return this.request(`/chat/${id}/messages`, { method: 'POST', data }) }
+const deleteMessage = function (channelId, messageId) { return this.request(`/chat/${channelId}/messages/${messageId}`, { method: 'DELETE' }) }
+const editMessage = function (channelId, messageId, data) { return this.request(`/chat/${channelId}/messages/${messageId}`, { method: 'PATCH', data }) }
 const chatSubscribeMany = function (id, data) { return this.request(`/chat/${id}/subscribeMany`, { method: 'POST', data }) }
 const chatUnsubscribeMany = function (id, data) { return this.request(`/chat/${id}/unsubscribeMany`, { method: 'PATCH', data }) }
 
@@ -400,6 +402,8 @@ const api = {
   chatSubscribeMany,
   chatUnsubscribeMany,
   newMessage,
+  deleteMessage,
+  editMessage,
   followUser,
   unfollowUser,
   followDeck,
