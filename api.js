@@ -193,9 +193,14 @@ const postTimelineComment = function (id, data) { return this.request(`/feed/${i
 const deleteComment = function (id) { return this.request(`/comments/${id}`, { method: 'DELETE' }) }
 const likeComment = function (id) { return this.request(`/comments/${id}/likes`, { method: 'POST' }) }
 const unlikeComment = function (id) { return this.request(`/comments/${id}/likes`, { method: 'DELETE' }) }
+const votePoll = function (postId, options) { return this.request(`/feed/${postId}/poll`, { method: 'POST', data: { options } }) }
+const getPollVoters = function (postId) { return this.request(`/feed/${postId}/poll`) }
 
 const getAnnouncements = function () { return this.request('/users/me/announcements') }
 const markNotificationRead = function (id) { return this.request(`/users/me/notification/${id}/read`) }
+const getNotifications = function () { return this.request('/notifications') }
+const readNotification = function (id) { return this.request(`/notifications/${id}/read`, { method: 'POST' }) }
+const readAllNotifications = function () { return this.request('/notifications/read', { method: 'POST' }) }
 const createAnnouncement = function (data) { return this.request('/organization/announcement', { method: 'POST', data }) }
 const getOnlineStatus = function (data) { return this.request('/users/online', { method: 'POST', data }) }
 
@@ -421,6 +426,8 @@ const api = {
   deleteComment,
   likeComment,
   unlikeComment,
+  votePoll,
+  getPollVoters,
   getAnnouncements,
   createAnnouncement,
   getTaskComments,
@@ -428,6 +435,9 @@ const api = {
   deleteTaskComment,
   editTaskComment,
   markNotificationRead,
+  getNotifications,
+  readNotification,
+  readAllNotifications,
   getPersonalQuestions,
   getOnlineStatus,
   getParam,
